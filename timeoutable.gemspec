@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name          = "timeoutable"
   spec.version       = Timeoutable::VERSION
   spec.authors       = ["Matt Taylor"]
-  spec.email         = ["mtaylor@chime.com"]
+  spec.email         = ["mattius.taylor@gmail.com"]
 
   spec.summary       = "TODO: Write a short summary, because RubyGems requires one."
   spec.description   = "TODO: Write a longer description or delete this line."
