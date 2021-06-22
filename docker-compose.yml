@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  timeoutable:
+    command: tail -f /dev/null
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - .:/gem
+      - ..:/local
+volumes:
+  bundle-cache:
