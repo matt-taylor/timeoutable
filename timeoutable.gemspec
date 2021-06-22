@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name          = "timeoutable"
   spec.version       = Timeoutable::VERSION
   spec.authors       = ["Matt Taylor"]
-  spec.email         = ["mattius.taylor@chime.com"]
+  spec.email         = ["mattius.taylor@gmail.com"]
 
   spec.summary       = "Extension of Ruby's Timeout::timeout method"
   spec.description   = "Extends Timeout::timeout to add a warning capabilit. Potentially allows for a graceful shutdown"
