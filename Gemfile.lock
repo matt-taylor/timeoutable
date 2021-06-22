@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    timeoutable (0.2.0)
+    timeoutable (1.0.0)
       timeout
 
 GEM
