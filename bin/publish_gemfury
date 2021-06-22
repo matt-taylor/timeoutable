@@ -5,8 +5,7 @@ if [ -z "$GEMFURY_TOKEN" ]; then
   exit 1
 fi
 
-
-VERSION=$(bin/rails runner 'Timeoutable.get_version')
+VERSION=$(bin/version)
 PACKAGE=timeoutable-${VERSION}.gem
 
 # if [ $(git tag -l "$VERSION") ]; then
