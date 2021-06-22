@@ -25,7 +25,7 @@ jobs:
       - checkout
       - ruby/install-deps
       - run:
-          name: 'Get Go'
+          name: Publish Gemfury
           command: |
             bin/publish_gemfury
   publish-github:
@@ -92,15 +92,18 @@ workflows:
       - test:
           requires:
             - build
-      - publish-github
-      # - publish-github:
-      #     filters:
-      #       branches:
-      #         only:
-      #           - main
-      - publish-gemfury
-      # - publish-gemfury:
-      #     filters:
-      #       branches:
-      #         only:
-      #           - main
+      - publish-github:
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - main
+
+      - publish-gemfury:
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - main

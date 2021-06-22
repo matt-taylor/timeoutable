@@ -48,7 +48,7 @@ RSpec.describe Timeoutable do
       let(:sleep_after) { 5 }
 
       it do
-        expect { subject }.to change { Thread.current[Timeoutable::TestableKlass::BIT_NAME] }
+        expect { subject }.to raise_error(described_class::TimeoutExceeded).and change { Thread.current[Timeoutable::TestableKlass::BIT_NAME] }
       end
 
       it { expect { subject }.to raise_error(described_class::TimeoutExceeded, /Execution exceeded/) }
