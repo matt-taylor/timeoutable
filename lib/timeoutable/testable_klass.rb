@@ -25,14 +25,17 @@ module Timeoutable
       @logger = logger
     end
 
-    def execute(sleep_after:, sleep_for:, max_iterations: 10_000)
+    def execute(sleep_after:, sleep_for:, max_iterations: 10_000, raise_warn: false, raise_timeout: false)
       logger.info("at: execute -- Start")
       count = 0
       while count <= max_iterations && Thread.current[BIT_NAME].nil?
+        raise StandardError, 'Throwing error before warn bit' if raise_warn
         logger.info("at: execute -- sleeping for #{sleep_for}'s [#{count} iterations]")
         sleep(sleep_for)
         count += 1
       end
+      raise StandardError, 'Throwing error after warn bit' if raise_timeout
+
       logger.info("at: execute -- Worker noticed sleep bit changed -- Cycle broken")
 
       logger.warn("at: execute -- sleeping 1 last time for #{sleep_after}'s")
