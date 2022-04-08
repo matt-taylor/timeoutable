@@ -95,18 +95,4 @@ workflows:
               ruby-version: ["2.7.5" , "3.0.0", "3.0.3"]
             alias: required-matrix-tests
           name: test-ruby<< matrix.ruby-version >>
-      - publish-github:
-          requires:
-            - test
-          filters:
-            branches:
-              only:
-                - main
 
-      - publish-gemfury:
-          requires:
-            - test
-          filters:
-            branches:
-              only:
-                - main
