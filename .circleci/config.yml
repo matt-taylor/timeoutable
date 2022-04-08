@@ -1,9 +1,8 @@
 version: 2.1 # Use 2.1 to enable using orbs and other features.
 
-# Declare the orbs that we'll use in our config.
-# read more about orbs: https://circleci.com/docs/2.0/using-orbs/
 orbs:
   ruby: circleci/ruby@1.0
+  cst: cst/framework@dev:phase_1
 
 jobs:
   build: # our first job, named "build"
@@ -88,7 +87,14 @@ workflows:
   version: 2
   yeet-le-jobs:
     jobs:
-      - build
+      - cst/rspec-ruby:
+          rspec-system-args: "SIMPLE_COV_RUN=true"
+          cc-report-collect-ruby: "2.7.5-node"
+          matrix:
+            parameters:
+              ruby-version: ["2.7.5" , "3.0.0", "3.0.3"]
+            alias: required-matrix-tests
+          name: test-ruby<< matrix.ruby-version >>-rails<< matrix.rails-version >>
       - test:
           requires:
             - build
