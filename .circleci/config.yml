@@ -96,8 +96,6 @@ workflows:
             alias: required-matrix-tests
           name: test-ruby<< matrix.ruby-version >>
       - test:
-          requires:
-            - build
       - publish-github:
           requires:
             - test
