@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   ruby: circleci/ruby@1.0
-  cst: cst/framework@1
+  cst: cst/framework@dev:mst_too_quick
 
 workflows:
   version: 2
